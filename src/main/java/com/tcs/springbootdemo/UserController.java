@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 	
+	
+	
 	@Autowired
 	private UserService userservice;
 	
@@ -17,10 +19,15 @@ public class UserController {
 		System.out.println("Hello");
 		return "hello";
 	}
+	
+	@GetMapping("/alluser" )
+	private Iterable<User> getUser(@RequestBody User user) {
+		return userservice.getAlluser(user);
+	}
 	@PostMapping("/user")
-	private String saveUser(@RequestBody User user) {
+	private void saveUser(@RequestBody User user) {
 		userservice.save(user);
 		System.out.println(user.getName());
-		return user.getName();
+		//return user.getName();
 	}
 }
