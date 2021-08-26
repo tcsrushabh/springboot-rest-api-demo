@@ -7,6 +7,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 public class User {
 	
@@ -18,13 +23,6 @@ public class User {
 	private String name;
 	
 	@Email
-	private String emial ;
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	private String email ;
 	
 }
