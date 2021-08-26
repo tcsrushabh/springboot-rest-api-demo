@@ -2,6 +2,8 @@ package com.tcs.springbootdemo.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -40,7 +42,7 @@ public class UserController {
 		return userservice.getAlluser();
 	}
 	@PostMapping()
-	private void saveUser(@RequestBody User user) {
+	private void saveUser(@RequestBody @Valid User user) {
 		userservice.save(user);		
 	}
 	@DeleteMapping("/{id}")
